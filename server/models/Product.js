@@ -9,7 +9,11 @@ const productSchema = new mongoose.Schema(
     brand: { type: String },
     imageUrl: { type: String, required: true },
     countInStock: { type: Number, required: true, default: 0 },
-    // Thêm các trường khác nếu cần: size, color, ratings, reviews...
+    rating: { type: Number, required: true, default: 0 },
+    numReviews: { type: Number, required: true, default: 0 },
+    size: { type: String },
+    color: { type: String },
+    
   },
   {
     timestamps: true,
