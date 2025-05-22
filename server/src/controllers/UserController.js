@@ -1,7 +1,7 @@
 const UserService = require("../services/UserService");
 const JwtService = require("../services/JwtService");
 
-
+// Đăng kí người dùng
 const createUser = async (req, res) => {
   try {
     const { name, email, password, confirmPassword, phone } = req.body;
@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
     return res.status(404).json({ message: e });
   }
 };
-
+// Đăng nhập người dùng
 const loginUser = async (req, res) => {
   try {
     const { name, email, password, confirmPassword, phone } = req.body;
@@ -57,7 +57,7 @@ const loginUser = async (req, res) => {
     return res.status(404).json({ message: e });
   }
 };
-
+// Cập nhật người dùng
 const updateUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -75,7 +75,7 @@ const updateUser = async (req, res) => {
     return res.status(404).json({ message: e });
   }
 };
-
+// Xóa người dùng
 const deleteUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -95,7 +95,7 @@ const deleteUser = async (req, res) => {
     return res.status(404).json({ message: e });
   }
 };
-
+// Lấy thông tin tất cả người dùng
 const getAllUser = async (req, res) => {
   try {
     const response = await UserService.getAllUser();
@@ -104,7 +104,7 @@ const getAllUser = async (req, res) => {
     return res.status(404).json({ message: e });
   }
 };
-
+// Lấy thông tin chi tiết người dùng
 const getDetailsUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -122,7 +122,7 @@ const getDetailsUser = async (req, res) => {
     return res.status(404).json({ message: e });
   }
 };
-
+// Lấy token mới
 const refreshToken = async (req, res) => {
   try {
     const token = req.headers.token.split(" ")[1];

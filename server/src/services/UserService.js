@@ -2,6 +2,7 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcrypt");
 const { genneralAccessToken, genneralRefreshToken } = require("./JwtService");
 
+// Đăng kí người dùng
 const createUser = (newUser) => {
   return new Promise(async (resolve, reject) => {
     const { name, email, password, confirmPassword, phone } = newUser;
@@ -34,6 +35,7 @@ const createUser = (newUser) => {
   });
 };
 
+// Đăng nhập người dùng
 const loginUser = (userLogin) => {
   return new Promise(async (resolve, reject) => {
     const { name, email, password, confirmPassword, phone } = userLogin;
@@ -75,6 +77,7 @@ const loginUser = (userLogin) => {
   });
 };
 
+// Cập nhật người dùng
 const updateUser = (id, data) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -102,6 +105,7 @@ const updateUser = (id, data) => {
   });
 };
 
+// Xóa người dùng
 const deleteUser = (id) => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -125,6 +129,7 @@ const deleteUser = (id) => {
   });
 };
 
+// Lấy thông tin tất cả người dùng
 const getAllUser = () => {
   return new Promise(async (resolve, reject) => {
     try {
@@ -140,6 +145,7 @@ const getAllUser = () => {
   });
 };
 
+// Lấy thông tin chi tiết người dùng
 const getDetailsUser = (id) => {
   return new Promise(async (resolve, reject) => {
     try {
